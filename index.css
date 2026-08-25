@@ -1,0 +1,52 @@
+:root {
+    --primary: #224FB8;
+    --secondary: #B88815;
+    --dark-primary: #344878;
+    --dark-secondary: #635433;
+    --very-dark-primary: #262C38;
+}
+
+html {
+    background-color: white;
+    color: var(--primary);
+    font-family: sans-serif;
+}
+
+h1, h2, .name {
+    color: var(--secondary);
+    font-family: serif;
+}
+
+ul, table {
+    font-family: monospace;
+}
+
+table {
+    border-collapse: collapse;
+}
+                                                                     
+th, td {
+    border: 1px solid var(--very-dark-primary);
+    padding: 3px;
+}
+
+footer {
+    font-size: .75rem;
+    text-align: center;
+}
+
+a:link {
+    color: var(--dark-primary);
+}
+
+a:visited {
+    color: var(--dark-secondary);
+}
+
+.t-center {
+    text-align: center;
+}
+
+.t-left {
+    text-align: left;
+}
