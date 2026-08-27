@@ -3,6 +3,13 @@ const http = require('http'),
       port = 3000
 
 const server = http.createServer( function( request,response ) {
+  if(request.url != '/') {
+    sendFile(response, request.url.slice(1))
+  }
+  else {
+    sendFile(response, 'index.html')
+  }
+  /**
   switch( request.url ) {
     case '/':
       sendFile( response, 'index.html' )
@@ -16,11 +23,17 @@ const server = http.createServer( function( request,response ) {
     default:
       response.end( '404 Error: File Not Found' )
   }
+  */
 })
 
-server.listen( process.env.PORT || port )
+const usedPort = process.env.PORT || port
+server.listen( usedPort )
+console.log("Listening on port " + usedPort)
 
 const sendFile = function( response, filename ) {
+  if(filename == 'index.css') {
+    response.setHeader('Content-Type', 'text/css')
+  }
    fs.readFile( filename, function( err, content ) {
      response.end( content, 'utf-8' )
    })
